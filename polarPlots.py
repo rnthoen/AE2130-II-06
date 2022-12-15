@@ -3,10 +3,10 @@ import pandas as pd
 import numpy as np
 import matplotlib.pyplot as plt
 
-import_filename = "corr_test.txt"
-export_filename_Cl = "2D, Cl"
-export_filename_Cd = "2D, Cd"
-export_filename_Cm = "2D, Cm"
+import_filename = "2D Measurements/corr_test.txt"
+export_filename_Cl = "2D, Cl.csv"
+export_filename_Cd = "2D, Cd.csv"
+export_filename_Cm = "2D, Cm.csv"
 
 def importData(filename):
     # Takes : filename
@@ -70,4 +70,6 @@ def plotMoment(data):
     alpha_cd.to_csv(export_filename_Cm, index=False)
 
 data = importData(import_filename)
+plotLift(data)
 plotDrag(data)
+plotMoment(data)
