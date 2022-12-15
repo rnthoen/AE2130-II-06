@@ -3,10 +3,10 @@ import pandas as pd
 import numpy as np
 import matplotlib.pyplot as plt
 
-import_filename = "2D Measurements/corr_test.txt"
-export_filename_Cl = "2D, Cl.csv"
-export_filename_Cd = "2D, Cd.csv"
-export_filename_Cm = "2D, Cm.csv"
+import_filename = "3D Measurements/corr_test.txt"
+export_filename_Cl = "3D, Cl.csv"
+export_filename_Cd = "3D, Cd.csv"
+export_filename_Cm = "3D, Cm.csv"
 
 def importData(filename):
     # Takes : filename
@@ -43,8 +43,8 @@ def plotLift(data):
     # Takes : DataFrame called data
     # Returns/Plots : seperated csv file w/ just the alpha and cl (that can be read by LaTex/overleaf), polar plot
 
-    alpha_cl = data[["Alpha", "Cl"]]
-    alpha_cl.plot(x="Alpha", y="Cl")
+    alpha_cl = data[["Alpha", "CL"]]
+    alpha_cl.plot(x="Alpha", y="CL")
     plt.show()
 
     alpha_cl.to_csv(export_filename_Cl, index=False)
@@ -53,8 +53,8 @@ def plotDrag(data):
     # Takes : DataFrame called data
     # Returns/Plots : seperated csv file w/ just the alpha and Cd (that can be read by LaTex/overleaf), polar plot
 
-    alpha_cd = data[["Alpha", "Cd"]]
-    alpha_cd.plot(x="Alpha", y="Cd")
+    alpha_cd = data[["Alpha", "CD"]]
+    alpha_cd.plot(x="Alpha", y="CD")
     plt.show()
 
     alpha_cd.to_csv(export_filename_Cd, index=False)
@@ -63,8 +63,8 @@ def plotMoment(data):
     # Takes : DataFrame called data
     # Returns/Plots : seperated csv file w/ just the alpha and Cm (that can be read by LaTex/overleaf), polar plot
 
-    alpha_cd = data[["Alpha", "Cm"]]
-    alpha_cd.plot(x="Alpha", y="Cm")
+    alpha_cd = data[["Alpha", "CD"]]
+    alpha_cd.plot(x="Alpha", y="CM")
     plt.show()
 
     alpha_cd.to_csv(export_filename_Cm, index=False)
@@ -72,4 +72,4 @@ def plotMoment(data):
 data = importData(import_filename)
 plotLift(data)
 plotDrag(data)
-plotMoment(data)
+#plotMoment(data)
